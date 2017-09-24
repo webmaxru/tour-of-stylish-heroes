@@ -15,7 +15,7 @@ import { HeroDetailComponent } from './hero-detail.component';
 import { HeroSearchComponent } from './hero-search.component';
 
 import { MatToolbarModule } from '@angular/material';
-import {MATERIAL_COMPATIBILITY_MODE} from '@angular/material';
+import { MATERIAL_COMPATIBILITY_MODE } from '@angular/material';
 
 @NgModule({
   declarations: [
