@@ -1,10 +1,15 @@
-<div fxLayout="column" fxFlex>
-
+<div fxLayout="column" fxFlex [class]="activeTheme">
+  
   <mat-toolbar color="primary">
     <button mat-icon-button (click)="mainSideNav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
     <span>{{title}}</span>
+    <span fxFlex></span>
+
+    <button mat-icon-button [matMenuTriggerFor]="themeMenu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
   </mat-toolbar>
 
   <mat-sidenav-container fxFlex>
@@ -30,3 +35,9 @@
   </mat-sidenav-container>
 
 </div>
+
+<mat-menu #themeMenu x-position="before">
+  <button mat-menu-item (click)="activeTheme = ''">Regular Hero</button>
+  <button mat-menu-item (click)="activeTheme = 'darkside-hero-theme'">Darkside Hero</button>
+  <button mat-menu-item (click)="activeTheme = 'baby-hero-theme'">Baby Hero</button>
+</mat-menu>

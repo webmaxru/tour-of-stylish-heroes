@@ -19,7 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "my",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "hero-theme.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
