@@ -14,7 +14,8 @@ import { HeroesComponent } from './heroes.component';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroSearchComponent } from './hero-search.component';
 
-import { MdToolbarModule } from '@angular/material';
+import { MatToolbarModule } from '@angular/material';
+import {MATERIAL_COMPATIBILITY_MODE} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -30,9 +31,12 @@ import { MdToolbarModule } from '@angular/material';
     AppRoutingModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 600 }),
-    MdToolbarModule
+    MatToolbarModule
   ],
-  providers: [HeroService],
+  providers: [
+    HeroService,
+    {provide: MATERIAL_COMPATIBILITY_MODE, useValue: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

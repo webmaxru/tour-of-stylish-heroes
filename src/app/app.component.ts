@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'my-root',
   template: `
-    <md-toolbar color="primary">
+    <mat-toolbar color="primary">
       <span>{{title}}</span>
-    </md-toolbar>
+    </mat-toolbar>
     <div class="header-bar"></div>
     <nav>
       <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
