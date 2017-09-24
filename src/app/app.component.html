@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="mainSideNav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>{{title}}</span>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened #mainSideNav>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active">
+        <mat-icon>info</mat-icon>
+        <span>Dashboard</span>
+      </a>
+      <a mat-list-item routerLink="/heroes" routerLinkActive="active">
+        <mat-icon>info</mat-icon>
+        <span>Heroes</span>
+      </a>
+    </mat-nav-list>
+
+  </mat-sidenav>
+  <div>
+
+    <router-outlet></router-outlet>
+
+  </div>
+</mat-sidenav-container>

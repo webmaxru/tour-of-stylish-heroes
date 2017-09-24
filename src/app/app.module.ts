@@ -14,8 +14,11 @@ import { HeroesComponent } from './heroes.component';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroSearchComponent } from './hero-search.component';
 
-import { MatToolbarModule } from '@angular/material';
-import {MATERIAL_COMPATIBILITY_MODE} from '@angular/material';
+import { BrowserAnimationsModule}  from '@angular/platform-browser/animations';
+import { CustomMaterialModule } from './custom-material.module';
+import 'hammerjs';
+
+import { MATERIAL_COMPATIBILITY_MODE } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,8 @@ import {MATERIAL_COMPATIBILITY_MODE} from '@angular/material';
     AppRoutingModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 600 }),
-    MatToolbarModule
+    CustomMaterialModule,
+    BrowserAnimationsModule
   ],
   providers: [
     HeroService,
