@@ -1,11 +1,32 @@
-<div *ngIf="hero">
-  <h2>{{hero.name}} details!</h2>
-  <div>
-    <label>id: </label>{{hero.id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="hero.name" placeholder="name" />
-  </div>
-  <button (click)="goBack()">Back</button>
-  <button (click)="save()">Save</button>
-</div>
+<mat-card *ngIf="hero">
+  <mat-card-header>
+    <mat-icon mat-card-avatar>flash_on</mat-icon>
+    <mat-card-title>{{hero.name}}</mat-card-title>
+    <mat-card-subtitle>#{{hero.id}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+
+    <div fxLayout="column" fxLayoutGap="16px">
+
+      <mat-form-field>
+        <input matInput [(ngModel)]="hero.name" placeholder="Name">
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea matInput placeholder="Address">Gotham City</textarea>
+      </mat-form-field>
+
+      <mat-select placeholder="Favorite food" [(ngModel)]="selectedFood" name="food">
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </mat-option>
+      </mat-select>
+
+    </div>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="save(hero)">Save</button>
+    <button mat-raised-button (click)="goBack(hero)">Back</button>
+  </mat-card-actions>
+</mat-card>

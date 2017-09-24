@@ -17,6 +17,7 @@ import { HeroSearchComponent } from './hero-search.component';
 import { BrowserAnimationsModule}  from '@angular/platform-browser/animations';
 import { CustomMaterialModule } from './custom-material.module';
 import 'hammerjs';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MATERIAL_COMPATIBILITY_MODE } from '@angular/material';
 
@@ -35,7 +36,8 @@ import { MATERIAL_COMPATIBILITY_MODE } from '@angular/material';
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 600 }),
     CustomMaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FlexLayoutModule
   ],
   providers: [
     HeroService,

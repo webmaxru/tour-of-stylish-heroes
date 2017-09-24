@@ -1,19 +1,23 @@
 <my-hero-search></my-hero-search>
 
 <h3>Top Heroes</h3>
-<mat-card *ngFor="let hero of heroes">
-  <mat-card-header>
-    <mat-icon mat-card-avatar>flash_on</mat-icon>
-    <mat-card-title>{{hero.name}}</mat-card-title>
-    <mat-card-subtitle>#{{hero.id}}</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="assets/img/hero.png">
-  <mat-card-content>
-    <p>
-      I am NOT Groot!
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button (click)="gotoDetail(hero)">View</button>
-  </mat-card-actions>
-</mat-card>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+
+  <mat-card *ngFor="let hero of heroes" fxFlex="25">
+    <mat-card-header>
+      <mat-icon mat-card-avatar>flash_on</mat-icon>
+      <mat-card-title>{{hero.name}}</mat-card-title>
+      <mat-card-subtitle>#{{hero.id}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="assets/img/hero.png">
+    <mat-card-content>
+      <p>
+        I am NOT Groot!
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="gotoDetail(hero)">View</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
