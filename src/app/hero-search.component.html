@@ -1,7 +1,11 @@
-<mat-form-field>
-  <input matInput placeholder="Hero search" #searchBox (keyup)="search(searchBox.value)">
-</mat-form-field>
+<mat-card>
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput placeholder="Hero search" #searchBox (keyup)="search(searchBox.value)">
+    </mat-form-field>
 
-<mat-nav-list>
-  <a mat-list-item *ngFor="let hero of heroes | async" (click)="gotoDetail(hero)">{{hero.name}}</a>
-</mat-nav-list>
+    <mat-nav-list>
+      <a mat-list-item *ngFor="let hero of heroes | async" (click)="gotoDetail(hero)">{{hero.name}}</a>
+    </mat-nav-list>
+  </mat-card-content>
+</mat-card>
