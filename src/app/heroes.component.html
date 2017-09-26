@@ -1,44 +1,28 @@
 <h2>My Heroes</h2>
 
-<ul class="heroes">
-  <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
-    <span class="hero-element">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
-    </span>
-    <button class="delete-button" (click)="deleteHero(hero, $event)">Delete</button>
-  </li>
-</ul>
+<mat-table #table [dataSource]="dataSource">
 
-<div class="error" *ngIf="error">{{error}}</div>
-<button (click)="addHero()">Add New Hero</button>
-<div *ngIf="addingHero">
-  <my-hero-detail (close)="close($event)"></my-hero-detail>
-</div>
+  <ng-container matColumnDef="heroId">
+    <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+  </ng-container>
 
-<div *ngIf="selectedHero">
-  <h2>
-    {{selectedHero.name | uppercase}} is my hero
-  </h2>
-  <button (click)="gotoDetail()">View Details</button>
-</div>
+  <ng-container matColumnDef="heroName">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+  </ng-container>
 
-<div>
-  <style>
-    .hidden { visibility: hidden}
-  </style>
-  <h4>ngFor Features</h4>
-  <button (click)="showNgFor=!showNgFor">{{showNgFor ? 'Hide' : 'Show'}} ngFor Features</button>
-  <table [class.hidden]="!showNgFor">
-    <tbody>
-      <tr *ngFor="let hero of heroes; let ix = index; let c = count; let e = even; let o = odd; let f = first; let l = last">
-        <td>{{hero.name}}</td>
-        <td>{{ix}}</td>
-        <td>{{c}}</td>
-        <td>{{e}}</td>
-        <td>{{o}}</td>
-        <td>{{f}}</td>
-        <td>{{l}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+  <ng-container matColumnDef="heroActions">
+    <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <button mat-button color="accent" (click)="deleteHero(row, $event)">Delete</button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
+
+<mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+</mat-paginator>

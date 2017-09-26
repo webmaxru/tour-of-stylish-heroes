@@ -20,6 +20,7 @@ import 'hammerjs';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MATERIAL_COMPATIBILITY_MODE } from '@angular/material';
+import {CdkTableModule} from '@angular/cdk/table';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MATERIAL_COMPATIBILITY_MODE } from '@angular/material';
     InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 600 }),
     CustomMaterialModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    CdkTableModule
   ],
   providers: [
     HeroService,
